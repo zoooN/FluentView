@@ -227,6 +227,13 @@ public static class ControlsExtensions
 
     #region EditText
 
+    public static TView Placeholder<TView>(this TView field, string? placeholder)
+        where TView : UITextField
+    {
+        field.Placeholder = placeholder;
+        return field;
+    }
+    
     public static TView ContentType<TView>(this TView field, NSString contentType)
         where TView : UITextField
     {
@@ -277,6 +284,15 @@ public static class ControlsExtensions
             .ContentType(UITextContentType.Password)
             .AutocapitalizationType(UITextAutocapitalizationType.None)
             .KeyboardType(UIKeyboardType.Default)
+            .Tune(f => f.SecureTextEntry = true);
+    }
+    
+    public static TView Money<TView>(this TView field)
+        where TView : UITextField
+    {
+        return field
+            .AutocapitalizationType(UITextAutocapitalizationType.None)
+            .KeyboardType(UIKeyboardType.DecimalPad)
             .Tune(f => f.SecureTextEntry = true);
     }
 

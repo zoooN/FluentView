@@ -9,7 +9,7 @@ public static class ViewExtensions
         return self;
     }
 
-    public static TView ArrangedSubview<TView>(this TView self, params UIView[] subviews)
+    public static TView ArrangedSubviews<TView>(this TView self, params UIView[] subviews)
         where TView : UIStackView
     {
         foreach (var subview in subviews)
